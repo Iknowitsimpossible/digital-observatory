@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-// Ensure your image is named 'apollo-hero.jpg' inside the src/assets folder
+// 确保你的图片位于 src/assets 文件夹中，并命名为 apollo-hero.jpg
 import heroImage from './assets/apollo-hero.jpg'; 
 
-// Refined Section Component with Glass-morphism boxing
+// 玻璃拟态卡片组件
 const Section = ({ title, subtitle, content, children }) => (
   <section className="mb-24 relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/40 backdrop-blur-md p-8 md:p-12 transition-all duration-700 hover:border-amber-200/30 hover:bg-slate-900/50 group">
-    {/* Subtle Inner Glow Effect that appears on hover */}
+    {/* 悬停时出现的内部微光 */}
     <div className="absolute -top-24 -left-24 w-48 h-48 bg-amber-200/5 blur-[100px] group-hover:bg-amber-200/10 transition-colors" />
     
     <div className="relative z-10">
@@ -24,7 +24,7 @@ const Section = ({ title, subtitle, content, children }) => (
 );
 
 export default function App() {
-  // Generate 150 random stars once
+  // 生成 150 颗随机位置和延迟的星星，使用 useMemo 避免重复渲染带来的闪烁
   const stars = useMemo(() => {
     return [...Array(150)].map((_, i) => ({
       id: i,
@@ -32,16 +32,16 @@ export default function App() {
       left: `${Math.random() * 100}%`,
       size: Math.random() * 2 + 1 + 'px',
       opacity: Math.random() * 0.7 + 0.3,
-      delay: Math.random() * 5 + 's'
+      delay: `${Math.random() * 5}s`
     }));
   }, []);
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-200 selection:bg-amber-200/30 selection:text-amber-200 antialiased font-sans relative overflow-x-hidden">
       
-      {/* --- COSMIC BACKGROUND --- */}
+      {/* --- 宇宙背景层 --- */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#020617]">
-        {/* Milky Way Nebula Effect */}
+        {/* 银河星云感渐变 */}
         <div className="absolute inset-0 opacity-40" 
              style={{
                background: `radial-gradient(circle at 50% -20%, #1e1b4b 0%, transparent 60%),
@@ -50,7 +50,7 @@ export default function App() {
              }} 
         />
 
-        {/* Dynamic Twinkling Stars */}
+        {/* 动态星群 */}
         {stars.map((star) => (
           <div
             key={star.id}
@@ -67,12 +67,13 @@ export default function App() {
           />
         ))}
 
-        {/* Subtle Stardust Texture */}
+        {/* 星尘纹理贴图 */}
         <div className="absolute inset-0 opacity-[0.05] mix-blend-screen bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
       </div>
+      {/* ---------------------------------- */}
 
-      {/* NAVIGATION HEADER */}
-      <nav className="fixed top-0 w-full p-8 flex justify-between items-center z-50 bg-transparent">
+      {/* --- 导航栏 (已修复：添加了深色背景和模糊效果) --- */}
+      <nav className="fixed top-0 w-full p-8 flex justify-between items-center z-50 bg-[#020617]/80 backdrop-blur-xl border-b border-white/5">
         <div className="flex flex-col">
           <span className="font-serif italic text-2xl tracking-tighter text-amber-100/90 leading-tight">
             The Digital Observatory
@@ -88,7 +89,7 @@ export default function App() {
 
       <main className="relative z-10 max-w-6xl mx-auto pt-56 pb-32 px-10">
         
-        {/* HERO SECTION */}
+        {/* HERO 区域 */}
         <div className="text-center mb-40">
           <div className="space-y-6 mb-16">
             <h1 className="text-amber-100/90 font-serif italic text-4xl md:text-7xl tracking-widest leading-tight drop-shadow-2xl">
@@ -99,6 +100,7 @@ export default function App() {
             </p>
           </div>
 
+          {/* 阿波罗主图 */}
           <div className="max-w-4xl mx-auto px-4 group">
             <div className="relative overflow-hidden rounded-lg border border-white/10 shadow-2xl transition-all duration-700 hover:border-amber-200/30">
               <div className="absolute inset-0 bg-indigo-950/20 mix-blend-overlay z-10 pointer-events-none"></div>
@@ -109,10 +111,11 @@ export default function App() {
               />
             </div>
           </div>
+
           <div className="w-px h-24 bg-gradient-to-b from-amber-200/50 to-transparent mx-auto mt-16 opacity-50"></div>
         </div>
 
-        {/* HEAVEN SECTION */}
+        {/* HEAVEN 板块 */}
         <Section 
           title="Heaven" 
           subtitle="Community & Cultural Interpretation" 
@@ -134,7 +137,7 @@ export default function App() {
           </div>
         </Section>
 
-        {/* EARTH SECTION */}
+        {/* EARTH 板块 */}
         <Section 
           title="Earth" 
           subtitle="The Research Commons" 
@@ -156,7 +159,7 @@ export default function App() {
           </div>
         </Section>
 
-        {/* HUMAN SECTION */}
+        {/* HUMAN 板块 */}
         <Section 
           title="Human" 
           subtitle="The Scholar's Notebook" 
