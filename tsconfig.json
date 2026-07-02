@@ -36,7 +36,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/human/video-scripts/beyond-the-horoscope", "app/human/video-scripts/dawn-of-reason", "app/human/video-scripts/east-meets-west", "app/human/video-scripts/final-frontier", "app/human/video-scripts/genesis-reimagined", "app/human/video-scripts/heavenly-connections", "app/human/video-scripts/modern-miracles"  ],
   "exclude": [
     "node_modules"
   ]
