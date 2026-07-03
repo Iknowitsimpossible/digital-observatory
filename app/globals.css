@@ -1,197 +1,207 @@
 @import "tailwindcss";
+
 /* =========================
    1. CSS Reset / Base
    ========================= */
 
-   *,
-   *::before,
-   *::after {
-     box-sizing: border-box;
-   }
-   
-   html,
-   body {
-     padding: 0;
-     margin: 0;
-   }
-   
-   body {
-     font-family: var(--font-geist-sans), system-ui, -apple-system,
-       BlinkMacSystemFont, "Segoe UI", sans-serif;
-     background: var(--ink-100);
-     color: var(--ink-700);
-     line-height: 1.6;
-   }
-   
-   /* Remove default link styles */
-   a {
-     color: inherit;
-     text-decoration: none;
-   }
-   
-   /* =========================
-      2. Design Tokens（道家色盘）
-      ========================= */
-   
-   :root {
-     /* Neutral ink system */
-     --ink-900: #0f172a; /* deep ink */
-     --ink-700: #334155; /* body text */
-     --ink-500: #64748b; /* secondary text */
-     --ink-300: #cbd5e1; /* borders */
-     --ink-100: #f1f5f9; /* background */
-   
-     /* Taoist accents */
-     --earth-accent: #7c6f64; /* warm stone */
-     --sky-accent: #3b5b7e; /* night indigo */
-     --human-accent: #6b4f3f; /* paper brown */
-   }
-   
-   /* =========================
-      3. Typography System
-      ========================= */
-   
-   h1,
-   h2,
-   h3,
-   h4 {
-     margin: 0;
-     font-weight: 500;
-     color: var(--ink-900);
-   }
-   
-   p {
-     margin: 0;
-     color: var(--ink-700);
-   }
-   
-   small {
-     color: var(--ink-500);
-   }
-   
-   /* Page titles */
-   .page-title {
-     font-size: 2.25rem;
-     letter-spacing: -0.02em;
-   }
-   
-   /* Page intros */
-   .page-intro {
-     margin-top: 0.75rem;
-     max-width: 65ch;
-     color: var(--ink-500);
-   }
-   
-   /* =========================
-      4. Layout Helpers
-      ========================= */
-   
-   .page {
-     max-width: 1100px;
-     padding: 4rem 2rem;
-     margin: 0 auto;
-   }
-   
-   .section {
-     margin-top: 3rem;
-   }
-   
-   /* Vertical breathing */
-   .stack > * + * {
-     margin-top: 1.25rem;
-   }
-   
-   /* =========================
-      5. Navigation
-      ========================= */
-   
-   .nav {
-     display: flex;
-     gap: 2rem;
-     font-size: 0.875rem;
-     color: var(--ink-500);
-   }
-   
-   .nav a:hover {
-     color: var(--ink-900);
-   }
-   
-   /* =========================
-      6. SectionBlock（核心组件）
-      ========================= */
-   
-   .section-block {
-     display: block;
-     border-left: 2px solid var(--ink-300);
-     padding-left: 1rem;
-     padding-top: 1rem;
-     padding-bottom: 1rem;
-     transition: border-color 0.3s ease;
-   }
-   
-   .section-block:hover {
-     border-color: var(--accent-color);
-   }
-   
-   /* Subtitle (Method / Constellation / Reading Notes) */
-   .section-subtitle {
-     font-size: 0.75rem;
-     letter-spacing: 0.15em;
-     text-transform: uppercase;
-     margin-bottom: 0.25rem;
-     color: var(--accent-color);
-   }
-   
-   /* Title */
-   .section-title {
-     font-size: 1.25rem;
-     font-weight: 500;
-     color: var(--ink-900);
-     transition: color 0.3s ease;
-   }
-   
-   .section-block:hover .section-title {
-     color: var(--accent-color);
-   }
-   
-   /* Description */
-   .section-desc {
-     margin-top: 0.5rem;
-     font-size: 0.875rem;
-     color: var(--ink-500);
-     max-width: 65ch;
-   }
-   
-   /* =========================
-      7. BackLink
-      ========================= */
-   
-   .back-link {
-     display: inline-block;
-     font-size: 0.875rem;
-     color: var(--ink-500);
-     margin-bottom: 2rem;
-     transition: color 0.2s ease;
-   }
-   
-   .back-link:hover {
-     color: var(--ink-900);
-   }
-   
-   /* =========================
-      8. Subtle Dividers / Taoist Lines
-      ========================= */
-   
-   .divider {
-     width: 100%;
-     height: 1px;
-     background: linear-gradient(
-       to right,
-       transparent,
-       var(--ink-300),
-       transparent
-     );
-     margin: 3rem 0;
-   }
-   
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--space-deep);
+  color: var(--star-dim);
+  font-family: var(--font-geist-sans), system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   2. Design Tokens — Cosmic Palette
+   ========================= */
+
+:root {
+  /* Space backgrounds */
+  --space-deep: #0a0e1a;    /* deep night sky — page background */
+  --space-mid: #141b2d;     /* elevated surfaces / cards */
+
+  /* Text */
+  --star-white: #e8e6e3;     /* primary text — bright stars */
+  --star-dim: #8892a4;       /* secondary text — distant stars */
+
+  /* Domain accents — warm gold / night blue / warm brass */
+  --earth-accent: #c4a35a;   /* warm gold — Earth */
+  --sky-accent: #5b8db8;     /* night blue — Sky */
+  --human-accent: #c49a6c;   /* warm brass — Human */
+
+  /* Decorative */
+  --cinnabar: #c41e3a;       /* Chinese red — seals / highlights */
+  --nebula: #3d2b5a;         /* purple depth — gradients */
+  --border-dim: rgba(255, 255, 255, 0.06); /* subtle borders */
+}
+
+/* =========================
+   3. Typography System
+   ========================= */
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 400;
+  color: var(--star-white);
+}
+
+p {
+  margin: 0;
+  color: var(--star-dim);
+}
+
+small {
+  color: var(--star-dim);
+  opacity: 0.7;
+}
+
+/* =========================
+   4. Utility Classes
+   ========================= */
+
+.page {
+  max-width: 1100px;
+  padding: 4rem 2rem;
+  margin: 0 auto;
+}
+
+.section {
+  margin-top: 3rem;
+}
+
+.stack > * + * {
+  margin-top: 1.25rem;
+}
+
+/* =========================
+   5. Glass Surface
+   ========================= */
+
+.glass {
+  background: rgba(20, 27, 45, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-dim);
+}
+
+/* =========================
+   6. Gradient Divider
+   ========================= */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  margin: 3rem 0;
+}
+
+/* =========================
+   7. Accent Glow Utility
+   ========================= */
+
+.glow-hover {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.04);
+}
+
+/* =========================
+   8. Scrollbar (dark)
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================
+   9. Card System (NASA-style)
+   ========================= */
+
+.card {
+  background: var(--space-mid);
+  border: 1px solid var(--border-dim);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Thumbnail zoom container */
+.card-thumbnail {
+  overflow: hidden;
+  position: relative;
+}
+
+.card-thumbnail > * {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-thumbnail > * {
+  transform: scale(1.05);
+}
+
+/* Hero text overlay — bottom gradient fade for text readability */
+.thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 35%,
+    rgba(10, 14, 26, 0.92) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+/* Portrait topic card container */
+.topic-card-thumb {
+  aspect-ratio: 2 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Category tag (eyebrow label above titles) */
+.card-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}

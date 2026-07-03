@@ -12,23 +12,27 @@ export default function SectionIntro({
   return (
     <section className="mb-20">
       {eyebrow && (
-        <div className="mb-6 text-xs tracking-widest uppercase text-neutral-400">
+        <div className="mb-6 text-xs tracking-[0.2em] uppercase" style={{ color: "var(--star-dim)" }}>
           {eyebrow}
         </div>
       )}
 
-      {/* 这里的 mb-6 是控制标题下方的间距 */}
-      {/* 建议改为 mb-10 (40px) 或 mb-12 (48px) */}
-      <h1 className="!mb-10 text-4xl font-light tracking-tight text-neutral-900">
+      <h1 className="mb-10 text-4xl font-light tracking-tight" style={{ color: "var(--star-white)" }}>
         {title}
       </h1>
 
-      <p className="max-w-2xl text-base leading-relaxed text-neutral-600">
+      <p className="max-w-2xl text-base leading-relaxed" style={{ color: "var(--star-dim)" }}>
         {description}
       </p>
 
-      {/* 如果你想让下面的线离描述文字也远一点，可以改这里的 mt-10 */}
-      <div className="mt-12 h-px w-24 bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
+      <div
+        className="mt-12 h-px"
+        style={{
+          width: "min(120px, 30vw)",
+          background: "linear-gradient(to right, var(--star-dim), transparent)",
+          opacity: 0.3,
+        }}
+      />
     </section>
   );
 }

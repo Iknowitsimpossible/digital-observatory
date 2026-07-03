@@ -1,9 +1,20 @@
 export default function Footer() {
   return (
-    <footer className="px-8 py-12 text-xs text-neutral-400 border-t border-neutral-100 mt-20">
-      <div className="max-w-5xl mx-auto flex justify-between">
-        <span className="font-medium">The Digital Observatory</span>
-        <span>© {new Date().getFullYear()}</span>
+    <footer
+      className="relative px-8 py-10 text-xs mt-20"
+      style={{
+        borderTop: "1px solid var(--border-dim)",
+        color: "var(--star-dim)",
+        zIndex: 1,
+      }}
+    >
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between gap-2">
+        <span className="font-medium" style={{ color: "var(--star-white)" }}>
+          The Digital Observatory
+        </span>
+        <span className="opacity-60">
+          Observing since {new Date().getFullYear()}
+        </span>
       </div>
     </footer>
   );

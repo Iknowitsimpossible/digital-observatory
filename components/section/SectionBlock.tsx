@@ -15,36 +15,38 @@ export default function SectionBlock({
 }: SectionBlockProps) {
   const content = (
     <>
-      {/* text-neutral-100 -> text-neutral-900 */}
-      <h2 className="mb-2 text-xl font-normal tracking-wide text-neutral-900">
+      <h2 className="mb-2 text-xl font-normal tracking-wide" style={{ color: "var(--star-white)" }}>
         {title}
       </h2>
 
       {subtitle && (
-        <div className="mb-4 text-sm font-medium text-neutral-400 uppercase tracking-wider">
+        <div className="mb-4 text-sm font-medium uppercase tracking-[0.15em]" style={{ color: "var(--star-dim)" }}>
           {subtitle}
         </div>
       )}
 
       {description && (
-        <p className="max-w-3xl text-sm leading-relaxed text-neutral-600">
+        <p className="max-w-3xl text-sm leading-relaxed" style={{ color: "var(--star-dim)" }}>
           {description}
         </p>
       )}
 
       {href && (
-        // bg-neutral-800 -> bg-neutral-200
-        <div className="mt-4 h-px w-20 bg-neutral-200 transition-all group-hover:w-32 group-hover:bg-neutral-400" />
+        <div
+          className="mt-4 h-px transition-all group-hover:w-28"
+          style={{
+            width: "min(60px, 15vw)",
+            background: "linear-gradient(to right, var(--star-dim), transparent)",
+            opacity: 0.4,
+          }}
+        />
       )}
     </>
   );
 
   if (href) {
     return (
-      <Link
-        href={href}
-        className="group block mb-16 cursor-pointer"
-      >
+      <Link href={href} className="group block mb-16 cursor-pointer">
         {content}
       </Link>
     );

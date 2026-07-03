@@ -41,15 +41,13 @@ const videos = [
 
 export default function VideoScriptsPage() {
   return (
-    <div className="space-y-24"> {/* 这里的 space-y-24 增加了开头部分和下方列表的距离 */}
-      {/* 1. 使用 SectionIntro 替代原先的 h1 和 p */}
-      <SectionIntro 
+    <div className="space-y-24">
+      <SectionIntro
         eyebrow="Library"
         title="Video Scripts"
         description="Translated and annotated scripts that communicate astronomical ideas through visual media. Bridging the gap between scientific inquiry and cinematic storytelling."
       />
 
-      {/* 2. 列表部分：用 div 包裹并增加内部间距 */}
       <div className="space-y-16"> 
         {videos.map((v) => (
           <SectionBlock

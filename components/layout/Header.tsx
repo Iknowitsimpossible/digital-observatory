@@ -1,27 +1,48 @@
 import Link from "next/link";
 
+const navLinks = [
+  { label: "Earth", href: "/earth" },
+  { label: "Sky", href: "/sky" },
+  { label: "Human", href: "/human" },
+];
+
 export default function Header() {
   return (
-    // border-neutral-800 -> border-neutral-200
-    <header className="border-b border-neutral-200 bg-white/50 backdrop-blur-sm sticky top-0 z-10">
-      <div className="mx-auto max-w-5xl px-6 py-6 flex items-center justify-between">
+    <header
+      className="sticky top-0 z-20 border-b"
+      style={{
+        background: "rgba(10, 14, 26, 0.65)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderColor: "var(--border-dim)",
+      }}
+    >
+      <div className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="text-lg font-medium tracking-wide text-neutral-900 hover:text-black transition-colors"
+          className="text-sm font-semibold tracking-[0.1em] uppercase opacity-80 hover:opacity-100 transition-opacity"
+          style={{
+            fontFamily: "var(--font-playfair), serif",
+            color: "var(--star-white)",
+          }}
         >
           The Digital Observatory
         </Link>
 
-        <nav className="flex gap-8 text-sm font-medium text-neutral-500">
-          <Link href="/earth" className="hover:text-neutral-900 transition-colors">
-            Earth
-          </Link>
-          <Link href="/sky" className="hover:text-neutral-900 transition-colors">
-            Sky
-          </Link>
-          <Link href="/human" className="hover:text-neutral-900 transition-colors">
-            Human
-          </Link>
+        <nav
+          className="flex gap-8 text-xs tracking-[0.18em] uppercase"
+          style={{ color: "var(--star-dim)" }}
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:opacity-80"
+              style={{ color: "inherit" }}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>

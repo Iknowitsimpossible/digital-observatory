@@ -1,4 +1,6 @@
 import Header from "./Header";
+import Footer from "./Footer";
+import StarField from "../StarField";
 
 export default function LayoutShell({
   children,
@@ -6,14 +8,15 @@ export default function LayoutShell({
   children: React.ReactNode;
 }) {
   return (
-    // bg-neutral-950 -> bg-neutral-50 (浅色背景)
-    // text-neutral-200 -> text-neutral-900 (深色文字)
-    <div className="min-h-screen bg-neutral-50 text-neutral-900 transition-colors duration-300">
+    <div className="relative min-h-screen" style={{ background: "var(--space-deep)" }}>
+      <StarField />
       <Header />
 
-      <main className="mx-auto max-w-5xl px-6 py-16">
+      <main className="relative mx-auto max-w-6xl px-6 py-8" style={{ zIndex: 1 }}>
         {children}
       </main>
+
+      <Footer />
     </div>
   );
 }
