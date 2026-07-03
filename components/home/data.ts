@@ -98,7 +98,11 @@ export const latestArticles: CardProps[] = [
   },
 ];
 
-export const domainTopics: CardProps[] = [
+export interface DomainTopicData extends CardProps {
+  chineseChar: string;
+}
+
+export const domainTopics: DomainTopicData[] = [
   {
     variant: "topic",
     title: "Earth",
@@ -110,6 +114,7 @@ export const domainTopics: CardProps[] = [
     thumbnailType: "dot-grid",
     accent: "var(--earth-accent)",
     seed: "domain-earth",
+    chineseChar: "地",
   },
   {
     variant: "topic",
@@ -122,6 +127,7 @@ export const domainTopics: CardProps[] = [
     thumbnailType: "dot-grid",
     accent: "var(--sky-accent)",
     seed: "domain-sky",
+    chineseChar: "天",
   },
   {
     variant: "topic",
@@ -134,5 +140,6 @@ export const domainTopics: CardProps[] = [
     thumbnailType: "dot-grid",
     accent: "var(--human-accent)",
     seed: "domain-human",
+    chineseChar: "人",
   },
 ];

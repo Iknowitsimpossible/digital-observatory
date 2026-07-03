@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ArticleCard from "@/components/cards/ArticleCard";
 import SectionHeader from "@/components/sections/SectionHeader";
 import StarField from "@/components/StarField";
+import DomainTriangle from "@/components/home/DomainTriangle";
 import {
   featuredArticle,
   latestArticles,
@@ -125,7 +126,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* ============================================================ */}
-      {/*  SECTION 4 — Explore Domains (portrait topic cards)           */}
+      {/*  SECTION 4 — Explore Domains (triangular circular cards)      */}
       {/* ============================================================ */}
 
       <motion.section variants={sectionFade} className="pb-28">
@@ -135,14 +136,7 @@ export default function HomePage() {
           viewAllLabel="Start Exploring"
         />
 
-        <motion.div
-          variants={gridContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {domainTopics.map((topic, i) => (
-            <ArticleCard key={topic.seed ?? i} {...topic} />
-          ))}
-        </motion.div>
+        <DomainTriangle domains={domainTopics} />
       </motion.section>
     </motion.div>
   );
