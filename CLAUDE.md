@@ -138,3 +138,11 @@ For things I CAN generate: SVG star maps, constellation diagrams, decorative Chi
 - **Sky**: Azure Dragon (青龙), White Tiger (白虎), Big Dipper (北斗七星), Orion
 - **Human**: 3 reading notes (Hawking, Tyson, Popper)
 - Sky index page and Earth index page are minimal
+
+## Up Next — Priority Queue
+
+1. **Build Orion constellation page** — you already have the nebula image. Best cross-cultural topic (Greek + Chinese astronomy). Could set the pattern for all content pages.
+2. **Fill remaining stubs** — Earth (6 topics), Sky (3 constellation pages), Human (3 reading notes).
+3. **Design richer navigation** — hover states, Chinese constellation names, star-field header treatment.
+4. **Page transition animations** — framer-motion is installed, animate between routes.
+5. **Animated constellation line drawings** — expand ConstellationSVG to draw stick figures that appear as you scroll.
