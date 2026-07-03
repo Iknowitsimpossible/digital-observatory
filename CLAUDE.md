@@ -112,3 +112,29 @@ I can't browse the web and download images. Here's the pattern:
 - **I wire up** → Next.js `<Image>` with proper optimization, sizing, and layout
 
 For things I CAN generate: SVG star maps, constellation diagrams, decorative Chinese patterns, ink-wash style gradients — all of these are code, and I can write them directly.
+
+---
+
+## Current Status
+
+*Updated per session — 3–5 bullets on what's done and what's next.*
+
+### Done (2025-07-03)
+- **Homepage redesign — NASA-style magazine layout**: compact hero → featured story card → asymmetric 12-col article grid (6 cards) → 3 horizontal domain banner cards with accent borders
+- New components: `ArticleCard` (hero/standard/topic variants), `CardThumbnail` (SVG/CSS thumbnails — starfield, constellation, nebula, dot-grid), `SectionHeader`
+- Card hover: image-zoom-only interaction (scale 1.05, no lift/shadows) — pure NASA pattern
+- Staggered framer-motion entrance animations (sections → grid → individual cards)
+- 7 video script stubs filled in with `SectionIntro` (were 0-byte empty files breaking build)
+- Layout widened to `max-w-6xl` for magazine feel
+- **Image system wired up**: all 7 homepage cards now use real photos from `public/images/`
+  - Upgraded `<img>` → Next.js `<Image>` with `fill`, responsive `sizes`, and `priority` preloading on the hero card
+  - All images follow kebab-case naming convention
+  - Image mapping: hero (observatory dome), Dawn of Reason (stones at solstice), Brief History of Time (Hubble Deep Field), Orion (Orion Nebula), Astrophysics (spiral galaxy), East Meets West (Carina Nebula), Logic of Sci Discovery (telescopes at dawn)
+  - Grid reordered: "Logic of Scientific Discovery" promoted to `featured: true`, sitting alongside "Dawn of Reason" as twin anchor cards on the top row
+- Card thumbnail fallback: when `image` is set, it renders a real photo; when absent, falls back to generated SVG/CSS thumbnail (still available for future use)
+
+### Still Stubs (needs content)
+- **Earth**: time-domain, spectroscopy, multi-messenger, computation, astrobiology, astrophotography
+- **Sky**: Azure Dragon (青龙), White Tiger (白虎), Big Dipper (北斗七星), Orion
+- **Human**: 3 reading notes (Hawking, Tyson, Popper)
+- Sky index page and Earth index page are minimal
