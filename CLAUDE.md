@@ -129,20 +129,23 @@ For things I CAN generate: SVG star maps, constellation diagrams, decorative Chi
 - **Image system wired up**: all 7 homepage cards now use real photos from `public/images/`
   - Upgraded `<img>` → Next.js `<Image>` with `fill`, responsive `sizes`, and `priority` preloading on the hero card
   - All images follow kebab-case naming convention
-  - Image mapping: hero (observatory dome), Dawn of Reason (stones at solstice), Brief History of Time (Hubble Deep Field), Orion (Orion Nebula), Astrophysics (spiral galaxy), East Meets West (Carina Nebula), Logic of Sci Discovery (telescopes at dawn)
-  - Grid reordered: "Logic of Scientific Discovery" promoted to `featured: true`, sitting alongside "Dawn of Reason" as twin anchor cards on the top row
-- Card thumbnail fallback: when `image` is set, it renders a real photo; when absent, falls back to generated SVG/CSS thumbnail (still available for future use)
+- **Orion constellation page built** (`/sky/orion`) — first fully-built content page, sets the pattern for all future topic pages
+  - 6-section long-form cross-cultural article: Greek Hunter vs Chinese 参宿 (Shēn Xiù)
+  - New reusable components: `AnimatedSection` (scroll-triggered fade-up), `ParallaxHero` (nebula parallax), `OrionConstellationSVG` (animated stick figure), `ChineseSeal` (ink-stamp 参 character), `ComparisonPanel` (side-by-side cultural comparison)
+  - Science communication at undergraduate level — covers religious, historical, and social contexts behind divergent interpretations
+  - Scroll-triggered framer-motion animations throughout
 
 ### Still Stubs (needs content)
 - **Earth**: time-domain, spectroscopy, multi-messenger, computation, astrobiology, astrophotography
-- **Sky**: Azure Dragon (青龙), White Tiger (白虎), Big Dipper (北斗七星), Orion
+- **Sky**: Azure Dragon (青龙), White Tiger (白虎), Big Dipper (北斗七星)
 - **Human**: 3 reading notes (Hawking, Tyson, Popper)
 - Sky index page and Earth index page are minimal
 
 ## Up Next — Priority Queue
 
-1. **Build Orion constellation page** — you already have the nebula image. Best cross-cultural topic (Greek + Chinese astronomy). Could set the pattern for all content pages.
-2. **Fill remaining stubs** — Earth (6 topics), Sky (3 constellation pages), Human (3 reading notes).
-3. **Design richer navigation** — hover states, Chinese constellation names, star-field header treatment.
-4. **Page transition animations** — framer-motion is installed, animate between routes.
-5. **Animated constellation line drawings** — expand ConstellationSVG to draw stick figures that appear as you scroll.
+1. **Fill remaining Sky stubs** — Azure Dragon, White Tiger, Big Dipper (Orion is done, pattern established)
+2. **Fill Earth stubs** — 6 scientific method topics
+3. **Fill Human stubs** — 3 reading notes
+4. **Design richer navigation** — hover states, Chinese constellation names, star-field header treatment
+5. **Page transition animations** — framer-motion is installed, animate between routes
+6. **Refine Orion page** — add constellation line-drawing animation as lines appear on scroll

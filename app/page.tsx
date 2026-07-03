@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ArticleCard from "@/components/cards/ArticleCard";
 import SectionHeader from "@/components/sections/SectionHeader";
+import StarField from "@/components/StarField";
 import {
   featuredArticle,
   latestArticles,
@@ -47,6 +48,8 @@ export default function HomePage() {
       initial="hidden"
       animate="visible"
     >
+      <StarField />
+
       {/* ============================================================ */}
       {/*  SECTION 1 — Compact Hero                                     */}
       {/* ============================================================ */}

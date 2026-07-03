@@ -264,11 +264,7 @@ export default function ArticleCard(props: CardProps) {
       <motion.article variants={cardItem}>
         <Link
           href={href}
-          className="group block overflow-hidden rounded-2xl border transition-colors duration-300 relative"
-          style={{
-            borderColor: "var(--border-dim)",
-            background: "var(--space-mid)",
-          }}
+          className="group block overflow-hidden rounded-2xl border glass transition-colors duration-300 relative"
         >
           {/* Accent left border */}
           <div
