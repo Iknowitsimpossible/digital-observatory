@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Compass, Building2 } from "lucide-react";
 import ParallaxHero from "@/components/orion/ParallaxHero";
 import AnimatedSection from "@/components/orion/AnimatedSection";
+import SkyNextPage from "@/components/SkyNextPage";
 import OrionConstellationSVG from "@/components/orion/OrionConstellationSVG";
 import ChineseSeal from "@/components/orion/ChineseSeal";
 import ComparisonPanel from "@/components/orion/ComparisonPanel";
@@ -637,6 +638,11 @@ export default function OrionPage() {
       >
         参
       </div>
+      <SkyNextPage
+        href="/sky/white-tiger"
+        title="The White Tiger"
+      />
+
     </main>
   );
 }
