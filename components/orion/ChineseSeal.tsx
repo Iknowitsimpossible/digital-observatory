@@ -1,31 +1,46 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "framer-motion";
 
 /**
  * Decorative SVG that looks like a Chinese seal (印章).
  *
- * The character 参 (Shēn) — referencing 参宿, the Chinese name
- * for Orion's asterism in the 28 Mansions system.
- *
- * Design: a square cinnabar-red border with the character inside,
- * mimicking the look of a carved stone seal stamped on paper.
- * The slight rotation and textured edges give it an ink-stamp feel.
+ * Design: a square border with a character inside, mimicking
+ * the look of a carved stone seal stamped on paper. The slight
+ * rotation and textured edges give it an ink-stamp feel.
  *
  * Why SVG instead of just rendering the character in CSS?
  * A seal is a visual design element, not just text — the square
  * border, the rotation, and the ink-like color all work together
  * to evoke Chinese visual culture authentically. Plain text in
  * red wouldn't carry the same cultural reference.
+ *
+ * Now reusable across pages — pass a different `character`,
+ * `label`, and `color` for each constellation or domain.
  */
 
 type Props = {
   className?: string;
   /** Size in pixels. Defaults to 120. */
   size?: number;
+  /** The Chinese character to display. Defaults to 参 (Shēn). */
+  character?: string;
+  /** Small label text below the character. Defaults to "SHĒN XIÙ". */
+  label?: string;
+  /** Accent color for the seal border and character. Defaults to cinnabar red. */
+  color?: string;
 };
 
-export default function ChineseSeal({ className = "", size = 120 }: Props) {
+export default function ChineseSeal({
+  className = "",
+  size = 120,
+  character = "参",
+  label = "SHĒN XIÙ",
+  color = "var(--cinnabar)",
+}: Props) {
+  const filterId = useId();
+
   return (
     <motion.svg
       viewBox="0 0 100 100"
@@ -42,11 +57,11 @@ export default function ChineseSeal({ className = "", size = 120 }: Props) {
         transition: { duration: 0.8, ease: "easeOut" },
       }}
       viewport={{ once: true, margin: "-60px" }}
-      style={{ filter: "url(#ink-roughness)" }}
+      style={{ filter: `url(#${filterId})` }}
     >
       {/* Roughness filter for ink-stamp texture */}
       <defs>
-        <filter id="ink-roughness" x="-10%" y="-10%" width="120%" height="120%">
+        <filter id={filterId} x="-10%" y="-10%" width="120%" height="120%">
           <feTurbulence
             type="fractalNoise"
             baseFrequency="0.65"
@@ -70,7 +85,7 @@ export default function ChineseSeal({ className = "", size = 120 }: Props) {
         width="84"
         height="84"
         rx="2"
-        stroke="var(--cinnabar)"
+        stroke={color}
         strokeWidth="3.5"
         fill="none"
         initial={{ pathLength: 0 }}
@@ -88,7 +103,7 @@ export default function ChineseSeal({ className = "", size = 120 }: Props) {
         width="68"
         height="68"
         rx="1"
-        stroke="var(--cinnabar)"
+        stroke={color}
         strokeWidth="1.2"
         strokeOpacity="0.5"
         fill="none"
@@ -100,12 +115,12 @@ export default function ChineseSeal({ className = "", size = 120 }: Props) {
         viewport={{ once: true }}
       />
 
-      {/* The character 参 */}
+      {/* The character */}
       <motion.text
         x="50"
         y="66"
         textAnchor="middle"
-        fill="var(--cinnabar)"
+        fill={color}
         fontSize="52"
         fontFamily="serif"
         fontWeight="bold"
@@ -116,7 +131,7 @@ export default function ChineseSeal({ className = "", size = 120 }: Props) {
         }}
         viewport={{ once: true }}
       >
-        参
+        {character}
       </motion.text>
 
       {/* Small label below the character */}
@@ -124,7 +139,7 @@ export default function ChineseSeal({ className = "", size = 120 }: Props) {
         x="50"
         y="82"
         textAnchor="middle"
-        fill="var(--cinnabar)"
+        fill={color}
         opacity="0.6"
         fontSize="6"
         fontFamily="sans-serif"
@@ -136,7 +151,7 @@ export default function ChineseSeal({ className = "", size = 120 }: Props) {
         }}
         viewport={{ once: true }}
       >
-        SHĒN XIÙ
+        {label}
       </motion.text>
     </motion.svg>
   );
