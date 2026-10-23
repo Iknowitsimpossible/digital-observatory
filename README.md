@@ -4,7 +4,8 @@
 
 An immersive, dark-themed web experience that bridges Chinese and Western astronomical traditions. Think: Dunhuang star charts meet a modern planetarium.
 
-https://digital-observatory.vercel.app/
+**[Visit the observatory](https://digital-observatory.vercel.app/)**
+
 ---
 
 ## Three Domains
@@ -58,17 +59,17 @@ app/                         # Next.js App Router (pages, layouts, global styles
 │   ├── computation/
 │   ├── astrobiology/
 │   └── astrophotography/
-├── sky/                     # Constellation pages (1 built, 3 stubs)
-│   ├── orion/               # Fully built — Greek + Chinese cross-cultural article
+├── sky/                     # Constellation pages (4 built)
+│   ├── orion/               # Greek + Chinese cross-cultural article
 │   ├── azure-dragon/
 │   ├── white-tiger/
 │   └── big-dipper/
-└── human/                   # Reading notes + video scripts (3 + 8 stubs)
+└── human/                   # Reading notes + video scripts (3 + 7 stubs)
     ├── reading-notes/
     │   ├── brief-history-of-time/
     │   ├── astrophysics-for-people-in-a-hurry/
     │   └── logic-of-scientific-discovery/
-    └── video-scripts/       # 8 scripts to be filled
+    └── video-scripts/       # 7 scripts to be filled
 
 components/                  # React components, co-located by feature
 ├── home/                    # Homepage — domain cards, article data
@@ -115,13 +116,12 @@ Images live in `public/images/`. The workflow for adding them:
 ### Done
 - Homepage with NASA-style magazine layout, staggered animations
 - All 6 Earth pages built with custom animated heroes and scientific diagrams
-- Orion constellation page — full cross-cultural article
+- All 4 Sky constellation pages: Orion, Azure Dragon, White Tiger, Big Dipper
 - StarField background, layout shell, navigation components
 - Image system wired throughout
 
 ### In Progress
-- Filling remaining Sky stubs (Azure Dragon, White Tiger, Big Dipper)
-- Filling Human stubs (3 reading notes + 8 video scripts)
+- Filling Human stubs (3 reading notes + 7 video scripts)
 
 ### Up Next
 - Richer navigation design
